@@ -828,11 +828,43 @@
 
           }else if ([gameCurrentInfo.status intValue] == 2)
           {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"已封盘，停止下注" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
+            if ([gameCurrentInfo.game_num isEqualToString:info.game_count]) {
+              FllowTouZhuViewController *vc = [[FllowTouZhuViewController alloc]initWithNibName:@"FllowTouZhuViewController" bundle:nil];
+              vc.touzhuInfo = info;
+              vc.delegate = self;
+              vc.roomIDStr = self.roomIDStr;
+              vc.areaIDStr = self.areaIDStr;
+              self.definesPresentationContext = YES; //self is presenting view controller
+              vc.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+              if ([[UIDevice currentDevice].systemVersion floatValue] < 8.0)
+              {
+                self.view.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;//半透明全靠这句了
+              }
+              vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+              UIViewController * rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+              [rootViewController presentViewController:vc animated:YES completion:nil];
+            }
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"已封盘，停止下注" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
           }else  if ([gameCurrentInfo.status intValue] == 3){
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"停售期间暂不支持投注" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
+            if ([gameCurrentInfo.game_num isEqualToString:info.game_count]) {
+              FllowTouZhuViewController *vc = [[FllowTouZhuViewController alloc]initWithNibName:@"FllowTouZhuViewController" bundle:nil];
+              vc.touzhuInfo = info;
+              vc.delegate = self;
+              vc.roomIDStr = self.roomIDStr;
+              vc.areaIDStr = self.areaIDStr;
+              self.definesPresentationContext = YES; //self is presenting view controller
+              vc.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+              if ([[UIDevice currentDevice].systemVersion floatValue] < 8.0)
+              {
+                self.view.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;//半透明全靠这句了
+              }
+              vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+              UIViewController * rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+              [rootViewController presentViewController:vc animated:YES completion:nil];
+            }
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"停售期间暂不支持投注" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
           }
 
         }
@@ -1005,11 +1037,21 @@
 
   }else if ([gameCurrentInfo.status intValue] == 2)
   {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"已封盘，停止下注" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [alert show];
+    if (gameBiLiInfo) {
+      [self showTouZhuBiLiInfoViewControl];
+    }else{
+      [self httpGetGameBiLiInfoWithIsShow:YES];
+    }
+//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"已封盘，停止下注" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//    [alert show];
   }else if ([gameCurrentInfo.status intValue] == 3){
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"停售期间暂不支持投注" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    [alert show];
+    if (gameBiLiInfo) {
+      [self showTouZhuBiLiInfoViewControl];
+    }else{
+      [self httpGetGameBiLiInfoWithIsShow:YES];
+    }
+//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"停售期间暂不支持投注" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//    [alert show];
   }
 
 

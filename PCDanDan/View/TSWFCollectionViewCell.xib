@@ -30,17 +30,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shouye_162.png" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-xP-JVx">
-                        <rect key="frame" x="32" y="0.0" width="50" height="47"/>
+                        <rect key="frame" x="32" y="0.0" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="uHU-sn-pxn"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1:29.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZS-QI-MwP">
-                        <rect key="frame" x="38" y="23" width="39" height="18"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="18" id="JGI-A6-6PD"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:29.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZS-QI-MwP">
+                        <rect key="frame" x="43" y="21" width="29.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKW-CG-VAl">
+                        <rect key="frame" x="45.5" y="34" width="23.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -48,12 +51,13 @@
             </view>
             <constraints>
                 <constraint firstItem="Qpm-EA-T2X" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="Hgg-wB-XKk"/>
+                <constraint firstItem="YZS-QI-MwP" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="I8d-h7-UzY"/>
                 <constraint firstItem="jcV-xP-JVx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Itz-rQ-fXq"/>
-                <constraint firstItem="YZS-QI-MwP" firstAttribute="top" secondItem="Qpm-EA-T2X" secondAttribute="bottom" constant="3" id="JGO-LJ-KdA"/>
-                <constraint firstAttribute="bottom" secondItem="jcV-xP-JVx" secondAttribute="bottom" constant="3" id="K1Y-P4-Iij"/>
+                <constraint firstItem="YZS-QI-MwP" firstAttribute="top" secondItem="Qpm-EA-T2X" secondAttribute="bottom" constant="1" id="JGO-LJ-KdA"/>
+                <constraint firstAttribute="bottom" secondItem="jcV-xP-JVx" secondAttribute="bottom" id="K1Y-P4-Iij"/>
+                <constraint firstItem="FKW-CG-VAl" firstAttribute="top" secondItem="YZS-QI-MwP" secondAttribute="bottom" constant="1" id="OKy-vp-h6r"/>
                 <constraint firstItem="Qpm-EA-T2X" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="SuJ-Ih-QLM"/>
-                <constraint firstAttribute="trailing" secondItem="YZS-QI-MwP" secondAttribute="trailing" id="ezL-LN-2j1"/>
-                <constraint firstItem="YZS-QI-MwP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gqQ-HX-pV6"/>
+                <constraint firstItem="FKW-CG-VAl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eak-oT-6WX"/>
                 <constraint firstItem="jcV-xP-JVx" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ocx-tC-jIu"/>
             </constraints>
             <size key="customSize" width="115" height="57"/>

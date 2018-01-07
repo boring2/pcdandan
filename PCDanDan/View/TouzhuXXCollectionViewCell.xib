@@ -19,25 +19,25 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-GE-6EU">
-                        <rect key="frame" x="0.0" y="5" width="65" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="IuD-p4-lJ8"/>
-                        </constraints>
+                        <rect key="frame" x="25.5" y="2" width="14.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1:2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4Y-af-YIq">
-                        <rect key="frame" x="10" y="26" width="46" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="gwA-Co-8ny"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4Y-af-YIq">
+                        <rect key="frame" x="21" y="21" width="23.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2F-G7-ctl" userLabel="price Label">
+                        <rect key="frame" x="21" y="35" width="23.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shouye_162.png" translatesAutoresizingMaskIntoConstraints="NO" id="sPc-tD-RZu">
-                        <rect key="frame" x="7.5" y="0.0" width="50" height="47"/>
+                        <rect key="frame" x="7.5" y="0.0" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="TYZ-l9-VBO"/>
                         </constraints>
@@ -46,15 +46,15 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="u4Y-af-YIq" secondAttribute="trailing" id="0mQ-zl-Y8D"/>
                 <constraint firstItem="sPc-tD-RZu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4pR-WN-WRs"/>
-                <constraint firstItem="e7w-GE-6EU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9mY-x6-NrL"/>
-                <constraint firstItem="u4Y-af-YIq" firstAttribute="top" secondItem="e7w-GE-6EU" secondAttribute="bottom" constant="5" id="E8v-UF-1fD"/>
-                <constraint firstAttribute="bottom" secondItem="sPc-tD-RZu" secondAttribute="bottom" constant="3" id="Qib-J4-bB1"/>
-                <constraint firstItem="u4Y-af-YIq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YpO-kh-6dX"/>
+                <constraint firstItem="u4Y-af-YIq" firstAttribute="top" secondItem="e7w-GE-6EU" secondAttribute="bottom" constant="2" id="E8v-UF-1fD"/>
+                <constraint firstItem="K2F-G7-ctl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="F7t-s3-rAW"/>
+                <constraint firstItem="u4Y-af-YIq" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ONS-Mj-Gg5"/>
+                <constraint firstAttribute="bottom" secondItem="sPc-tD-RZu" secondAttribute="bottom" id="Qib-J4-bB1"/>
                 <constraint firstItem="sPc-tD-RZu" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="a2X-Jl-R7T"/>
-                <constraint firstAttribute="trailing" secondItem="e7w-GE-6EU" secondAttribute="trailing" id="gYu-eF-mW2"/>
-                <constraint firstItem="e7w-GE-6EU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="rcj-mp-53B"/>
+                <constraint firstItem="e7w-GE-6EU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="iED-7i-vEx"/>
+                <constraint firstItem="K2F-G7-ctl" firstAttribute="top" secondItem="u4Y-af-YIq" secondAttribute="bottom" constant="2" id="iYh-pK-Q3o"/>
+                <constraint firstItem="e7w-GE-6EU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="rcj-mp-53B"/>
             </constraints>
             <size key="customSize" width="65" height="53"/>
             <connections>
