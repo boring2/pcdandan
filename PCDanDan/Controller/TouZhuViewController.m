@@ -265,7 +265,7 @@
         int statue = [[dic objectForKey:@"statue"] intValue];
         if (statue == 2)
         {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"已封盘，停止下注" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"本期已截止" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
             return;
         }else if (statue == 3){

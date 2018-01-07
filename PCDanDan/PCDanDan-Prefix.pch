@@ -65,7 +65,8 @@
 #define QQSecret @""
 
 //环信key
-#define IMKey @"1194170530115396#pcdd"
+#define IMKey @"1188171215178053#huangjia28"
+//#define IMKey @"1194170530115396#pcdd"
 
 /******* 支付宝账号信息 *******/
 

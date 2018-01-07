@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CE3FDD52001E11600694E3E /* TouZhuTips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE3FDD42001E11600694E3E /* TouZhuTips.storyboard */; };
+		5CE3FDDD2001F00100694E3E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3FDDC2001F00100694E3E /* UIView+Extension.swift */; };
+		5CE3FDDF2001F73E00694E3E /* TouZhuTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3FDDE2001F73E00694E3E /* TouZhuTipsViewController.swift */; };
 		BE0382AE1E51AEC6009BE9BC /* GameBiLiInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0382AD1E51AEC6009BE9BC /* GameBiLiInfo.m */; };
 		BE07C8CA1E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE07C8C81E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.m */; };
 		BE07C8CB1E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE07C8C91E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.xib */; };
@@ -669,6 +672,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C8423FF1FFE63DE00218C02 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5CE3FDD42001E11600694E3E /* TouZhuTips.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TouZhuTips.storyboard; sourceTree = "<group>"; };
+		5CE3FDDC2001F00100694E3E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		5CE3FDDE2001F73E00694E3E /* TouZhuTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouZhuTipsViewController.swift; sourceTree = "<group>"; };
+		5CE3FDE420020A4000694E3E /* PCDanDan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PCDanDan-Bridging-Header.h"; sourceTree = "<group>"; };
 		8A4024A95A90BFA7D03D7B6C /* Pods-PCDanDan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PCDanDan.release.xcconfig"; path = "Pods/Target Support Files/Pods-PCDanDan/Pods-PCDanDan.release.xcconfig"; sourceTree = "<group>"; };
 		BE0382AC1E51AEC6009BE9BC /* GameBiLiInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBiLiInfo.h; sourceTree = "<group>"; };
 		BE0382AD1E51AEC6009BE9BC /* GameBiLiInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBiLiInfo.m; sourceTree = "<group>"; };
@@ -691,7 +699,7 @@
 		BE0F68D01E2B4AD000E3414C /* PCDanDan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCDanDan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0F68D41E2B4AD000E3414C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE0F68D61E2B4AD000E3414C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		BE0F68D71E2B4AD000E3414C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BE0F68D71E2B4AD000E3414C /* AppDelegate.m */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; usesTabs = 0; };
 		BE0F68DF1E2B4AD000E3414C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE0F68E21E2B4AD000E3414C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE0F68E41E2B4AD000E3414C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1863,6 +1871,7 @@
 		59EE0A98D25C25D52B95FC1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C8423FF1FFE63DE00218C02 /* CFNetwork.framework */,
 				BE66A7621E47750E00A811BA /* libc++.tbd */,
 				BE66A7601E4774FB00A811BA /* MobileCoreServices.framework */,
 				BE66A75E1E4774F200A811BA /* AVFoundation.framework */,
@@ -1877,6 +1886,14 @@
 				E62680791B13CD9ED0A79816 /* libPods-PCDanDan.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CE3FDDB2001EFB300694E3E /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				5CE3FDDC2001F00100694E3E /* UIView+Extension.swift */,
+			);
+			name = extension;
 			sourceTree = "<group>";
 		};
 		8D52900E95B22E69AFAC6E91 /* Pods */ = {
@@ -2111,6 +2128,7 @@
 		BE0F69161E2B539F00E3414C /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				5CE3FDDB2001EFB300694E3E /* extension */,
 				BE0F69171E2B53C000E3414C /* HomePageViewController.h */,
 				BE0F69181E2B53C000E3414C /* HomePageViewController.m */,
 				BE0F69191E2B53C000E3414C /* HomePageViewController.xib */,
@@ -2136,6 +2154,9 @@
 				BE11C6911E63090700F91262 /* MyMessageListViewController.h */,
 				BE11C6921E63090700F91262 /* MyMessageListViewController.m */,
 				BE11C6931E63090700F91262 /* MyMessageListViewController.xib */,
+				5CE3FDD42001E11600694E3E /* TouZhuTips.storyboard */,
+				5CE3FDDE2001F73E00694E3E /* TouZhuTipsViewController.swift */,
+				5CE3FDE420020A4000694E3E /* PCDanDan-Bridging-Header.h */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -4035,6 +4056,7 @@
 				TargetAttributes = {
 					BE0F68CF1E2B4AD000E3414C = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					BE0F68E81E2B4AD000E3414C = {
@@ -4379,6 +4401,7 @@
 				BE11C68E1E62F86300F91262 /* MyPhoneViewController.xib in Resources */,
 				BE0F6B5B1E2B5F0700E3414C /* shouye_16.png in Resources */,
 				BEC3727F1E2FD233006FA3C5 /* MyWallectViewController.xib in Resources */,
+				5CE3FDD52001E11600694E3E /* TouZhuTips.storyboard in Resources */,
 				BE66A7051E47749300A811BA /* icon_013.gif in Resources */,
 				BE0F6B621E2B5F0700E3414C /* shouye_18.png in Resources */,
 				BE0F696C1E2B590A00E3414C /* LoginViewController.xib in Resources */,
@@ -4479,6 +4502,7 @@
 				BE0F69631E2B587B00E3414C /* IQTitleBarButtonItem.m in Sources */,
 				BE66A6CC1E47749300A811BA /* PSTGridLayoutRow.m in Sources */,
 				BE66A6B71E47749300A811BA /* EMSDWebImagePrefetcher.m in Sources */,
+				5CE3FDDD2001F00100694E3E /* UIView+Extension.swift in Sources */,
 				BEB354B81E2B7A5900BC2988 /* MoreViewController.m in Sources */,
 				BE0F6BD41E2B68AE00E3414C /* UIScrollView+MJExtension.m in Sources */,
 				BE5FB4661E5C315100BD79EA /* TXRecordListViewController.m in Sources */,
@@ -4697,6 +4721,7 @@
 				BE66A6D01E47749300A811BA /* EaseConversationModel.m in Sources */,
 				BE0F69641E2B587B00E3414C /* IQToolbar.m in Sources */,
 				BEB355231E2BD29900BC2988 /* SafariViewController.m in Sources */,
+				5CE3FDDF2001F73E00694E3E /* TouZhuTipsViewController.swift in Sources */,
 				BE66A6AF1E47749300A811BA /* MWZoomingScrollView.m in Sources */,
 				BE11C7261E633FD600F91262 /* base64.m in Sources */,
 				BE0F69591E2B587B00E3414C /* IQNSArray+Sort.m in Sources */,
@@ -4924,10 +4949,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N4MSU7VQ7A;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4950,7 +4977,7 @@
 					"$(SRCROOT)/Extern/ALiPay",
 				);
 				INFOPLIST_FILE = PCDanDan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4962,10 +4989,13 @@
 					"$(PROJECT_DIR)/Extern/BlocksKit",
 					"$(PROJECT_DIR)/Extern/ALiPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shen3pcdandan.user;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shen3pcdandan.user2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/${PROJECT_NAME}/Controller/PCDanDan-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4976,10 +5006,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N4MSU7VQ7A;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5002,7 +5034,7 @@
 					"$(SRCROOT)/Extern/ALiPay",
 				);
 				INFOPLIST_FILE = PCDanDan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5014,10 +5046,11 @@
 					"$(PROJECT_DIR)/Extern/BlocksKit",
 					"$(PROJECT_DIR)/Extern/ALiPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shen3pcdandan.user;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shen3pcdandan.user2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -5025,6 +5058,7 @@
 		BE0F69011E2B4AD000E3414C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PCDanDanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -5037,6 +5071,7 @@
 		BE0F69021E2B4AD000E3414C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PCDanDanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -5049,6 +5084,7 @@
 		BE0F69041E2B4AD000E3414C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = PCDanDanUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vma.PCDanDanUITests;
@@ -5060,6 +5096,7 @@
 		BE0F69051E2B4AD000E3414C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = PCDanDanUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vma.PCDanDanUITests;

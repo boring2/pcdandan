@@ -241,7 +241,7 @@
 //   [Tool showPromptContent:@"敬请期待" onView:self.view];
     if ([ShareManager shareInstance].userinfo.nick_name.length > 0 && ![[ShareManager shareInstance].userinfo.nick_name isEqualToString:@"<null>"]) {
         VipHouseListInfo *info = [dataSourceArray objectAtIndex:indexPath.row];
-        if (![info.password isEqualToString:@"-1"]) {
+        if (info.password != nil) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入房间密码" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
             [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
             UITextField *txtName = [alert textFieldAtIndex:0];

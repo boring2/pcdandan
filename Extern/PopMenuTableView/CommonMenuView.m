@@ -65,7 +65,7 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.bounces = NO;
-    tableView.rowHeight = 40;
+    tableView.rowHeight = 49;
     tableView.showsVerticalScrollIndicator = NO;
     tableView.backgroundColor = [UIColor clearColor];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
