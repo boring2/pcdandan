@@ -8,13 +8,16 @@
 
 #import "TouZhuViewController.h"
 #import "TouZhuDXDSCollectionViewCell.h"
+#import "TouzhuXXCollectionViewCell.h"
+#import "TSWFCollectionViewCell.h"
 
-@interface TouZhuViewController ()<TouZhuDXDSCollectionViewCellDelegate>
+@interface TouZhuViewController ()<TouZhuDXDSCollectionViewCellDelegate, UITextFieldDelegate>
 {
   NSInteger pageNum;
   NSInteger selectDXDSIndex;//大小单双选择投资数字
   NSInteger selectCSZIndex;//猜数字选择投资数字
   NSInteger selectTSWFIndex;//特殊玩法选择投资数字
+  UIToolbar *toolbar;
   MBProgressHUD *HUD;
 }
 
@@ -25,12 +28,14 @@
 {
   
   [[NSNotificationCenter defaultCenter] removeObserver:self name:KQuitLogin object:nil];
-  
+  [[NSNotificationCenter defaultCenter] removeObserver:self  name:UITextFieldTextDidChangeNotification object:nil];
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self initVariable];
+
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
   //指导页显示
   if ([ShareManager shareInstance].isShowToXZYDY) {
     [self performSelector:@selector(addGuideView) withObject:nil afterDelay:0.5];
@@ -192,6 +197,7 @@
     NSLog( @"page=%ld",(long)pageNum);
     NSIndexPath *index = [NSIndexPath indexPathForRow:1 inSection:0];
     [_pageCollectView reloadItemsAtIndexPaths:@[index]];
+
   }else{
     return;
   }
@@ -425,13 +431,13 @@
 
 - (UIToolbar *)addToolbar
 {
-  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 35)];
+  toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 35)];
   toolbar.backgroundColor = [UIColor grayColor];
   UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   UIBarButtonItem *empty = [[UIBarButtonItem alloc] initWithTitle:@"    " style:UIBarButtonItemStylePlain target:nil action:nil];
   UIBarButtonItem *total = [[UIBarButtonItem alloc] initWithTitle:@"0.00" style:UIBarButtonItemStylePlain target:nil action:nil];
   [total setTintColor:[UIColor redColor]];
-  [total setEnabled:NO];
+//  [total setEnabled:NO];
   UIBarButtonItem *bar = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(textFieldDone)];
   toolbar.items = @[empty, space, total, space, bar];
   return toolbar;
@@ -440,6 +446,24 @@
 - (void) textFieldDone {
   [_moneyText endEditing:true];
   [_moneyText resignFirstResponder];
+  if (pageNum == 0) {
+    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
+    TouZhuDXDSCollectionViewCell *pageCell = (TouZhuDXDSCollectionViewCell *)[_pageCollectView cellForItemAtIndexPath:index];
+    NSIndexPath *cellIndex = [NSIndexPath indexPathForRow:selectDXDSIndex inSection:0];
+    TouzhuXXCollectionViewCell *cell = (TouzhuXXCollectionViewCell *)[pageCell.collectView cellForItemAtIndexPath:cellIndex];
+    cell.priceLabel.text = _moneyText.text;
+    _moneyText.text = @"0.00";
+    UIBarButtonItem *item = [toolbar.items objectAtIndex:2];
+    [item setTitle: [NSString stringWithFormat: @"%@", _moneyText.text]];
+  }
 }
 
+
+
+// uitextfield delegate
+- (void) textFieldDidChange {
+  UIBarButtonItem *item = [toolbar.items objectAtIndex:2];
+  [item setTitle: [NSString stringWithFormat: @"%@", _moneyText.text]];
+  NSLog(@"%@", _moneyText.text);
+}
 @end

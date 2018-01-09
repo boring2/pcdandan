@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSString *choiceNo;
 @property (assign, nonatomic) double per_max_point;
 @property (strong, nonatomic) GameBiLiInfo *gameBiLiInfo;
+
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 
@@ -36,6 +37,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *moneyText;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *pageCollectView;
+
+
 - (IBAction)clickDissButtonAction:(id)sender;
 - (IBAction)clickLeftButtonAction:(id)sender;
 - (IBAction)clickRightButtonAction:(id)sender;

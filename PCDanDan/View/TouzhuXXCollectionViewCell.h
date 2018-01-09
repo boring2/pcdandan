@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *biliLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *selectImage;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @end

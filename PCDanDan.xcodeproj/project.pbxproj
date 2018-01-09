@@ -10,6 +10,7 @@
 		5CE3FDD52001E11600694E3E /* TouZhuTips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE3FDD42001E11600694E3E /* TouZhuTips.storyboard */; };
 		5CE3FDDD2001F00100694E3E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3FDDC2001F00100694E3E /* UIView+Extension.swift */; };
 		5CE3FDDF2001F73E00694E3E /* TouZhuTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3FDDE2001F73E00694E3E /* TouZhuTipsViewController.swift */; };
+		5CE3FDE62003C91500694E3E /* CellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3FDE52003C91500694E3E /* CellDataSource.swift */; };
 		BE0382AE1E51AEC6009BE9BC /* GameBiLiInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0382AD1E51AEC6009BE9BC /* GameBiLiInfo.m */; };
 		BE07C8CA1E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE07C8C81E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.m */; };
 		BE07C8CB1E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE07C8C91E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.xib */; };
@@ -677,6 +678,7 @@
 		5CE3FDDC2001F00100694E3E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5CE3FDDE2001F73E00694E3E /* TouZhuTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouZhuTipsViewController.swift; sourceTree = "<group>"; };
 		5CE3FDE420020A4000694E3E /* PCDanDan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PCDanDan-Bridging-Header.h"; sourceTree = "<group>"; };
+		5CE3FDE52003C91500694E3E /* CellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDataSource.swift; sourceTree = "<group>"; };
 		8A4024A95A90BFA7D03D7B6C /* Pods-PCDanDan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PCDanDan.release.xcconfig"; path = "Pods/Target Support Files/Pods-PCDanDan/Pods-PCDanDan.release.xcconfig"; sourceTree = "<group>"; };
 		BE0382AC1E51AEC6009BE9BC /* GameBiLiInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBiLiInfo.h; sourceTree = "<group>"; };
 		BE0382AD1E51AEC6009BE9BC /* GameBiLiInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBiLiInfo.m; sourceTree = "<group>"; };
@@ -3661,6 +3663,7 @@
 				BE07C8CC1E4CB68900C1E472 /* TSWFCollectionViewCell.h */,
 				BE07C8CD1E4CB68900C1E472 /* TSWFCollectionViewCell.m */,
 				BE07C8CE1E4CB68900C1E472 /* TSWFCollectionViewCell.xib */,
+				5CE3FDE52003C91500694E3E /* CellDataSource.swift */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -4758,6 +4761,7 @@
 				BE11C68D1E62F86300F91262 /* MyPhoneViewController.m in Sources */,
 				BE11C69E1E630FBE00F91262 /* ForgetPwdViewController.m in Sources */,
 				BE66A6DE1E47749300A811BA /* EaseEmotionManager.m in Sources */,
+				5CE3FDE62003C91500694E3E /* CellDataSource.swift in Sources */,
 				BE66A6F91E47749300A811BA /* EaseChatBarMoreView.m in Sources */,
 				BE0F696B1E2B590A00E3414C /* LoginViewController.m in Sources */,
 				BEC373341E334DFC006FA3C5 /* HuishuiListTableViewCell.m in Sources */,

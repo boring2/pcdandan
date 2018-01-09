@@ -59,6 +59,7 @@
             <size key="customSize" width="65" height="53"/>
             <connections>
                 <outlet property="biliLabel" destination="u4Y-af-YIq" id="aGn-G7-COQ"/>
+                <outlet property="priceLabel" destination="K2F-G7-ctl" id="S7N-Bl-Hte"/>
                 <outlet property="selectImage" destination="sPc-tD-RZu" id="H0P-kd-95W"/>
                 <outlet property="titleLabel" destination="e7w-GE-6EU" id="jkT-rD-sdk"/>
             </connections>

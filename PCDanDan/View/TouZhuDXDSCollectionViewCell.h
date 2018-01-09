@@ -21,6 +21,11 @@
 @property (assign, nonatomic) NSInteger  selectCSZIndex;//猜数字选择投资数字
 @property (assign, nonatomic) NSInteger  selectTSWFIndex;//特殊玩法选择投资数字
 
+// multiselect
+@property (strong, nonatomic) NSMutableArray *selectDXDSIndexs;//大小单双多选
+@property (strong, nonatomic) NSMutableArray *selectCSZIndexs;//猜数字多选
+@property (strong, nonatomic) NSMutableArray *selectTSWFIndexs;//特殊玩法多选
+
 @property (strong, nonatomic) GameBiLiInfo *gameBiLiInfo;
 @property (assign, nonatomic) NSInteger showType;//0 大小单双 1、单数字 2、特殊玩法
 @property (nonatomic, assign) id<TouZhuDXDSCollectionViewCellDelegate> delegate;
