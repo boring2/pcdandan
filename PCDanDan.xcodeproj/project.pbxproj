@@ -11,6 +11,7 @@
 		5CE3FDDD2001F00100694E3E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3FDDC2001F00100694E3E /* UIView+Extension.swift */; };
 		5CE3FDDF2001F73E00694E3E /* TouZhuTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3FDDE2001F73E00694E3E /* TouZhuTipsViewController.swift */; };
 		5CE3FDE62003C91500694E3E /* CellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3FDE52003C91500694E3E /* CellDataSource.swift */; };
+		5CE3FDE920050D4900694E3E /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE3FDE820050D4900694E3E /* DataSource.m */; };
 		BE0382AE1E51AEC6009BE9BC /* GameBiLiInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0382AD1E51AEC6009BE9BC /* GameBiLiInfo.m */; };
 		BE07C8CA1E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE07C8C81E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.m */; };
 		BE07C8CB1E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE07C8C91E4CB0F100C1E472 /* TouzhuXXCollectionViewCell.xib */; };
@@ -679,6 +680,8 @@
 		5CE3FDDE2001F73E00694E3E /* TouZhuTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouZhuTipsViewController.swift; sourceTree = "<group>"; };
 		5CE3FDE420020A4000694E3E /* PCDanDan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PCDanDan-Bridging-Header.h"; sourceTree = "<group>"; };
 		5CE3FDE52003C91500694E3E /* CellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDataSource.swift; sourceTree = "<group>"; };
+		5CE3FDE720050D4900694E3E /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		5CE3FDE820050D4900694E3E /* DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		8A4024A95A90BFA7D03D7B6C /* Pods-PCDanDan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PCDanDan.release.xcconfig"; path = "Pods/Target Support Files/Pods-PCDanDan/Pods-PCDanDan.release.xcconfig"; sourceTree = "<group>"; };
 		BE0382AC1E51AEC6009BE9BC /* GameBiLiInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBiLiInfo.h; sourceTree = "<group>"; };
 		BE0382AD1E51AEC6009BE9BC /* GameBiLiInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBiLiInfo.m; sourceTree = "<group>"; };
@@ -3664,6 +3667,8 @@
 				BE07C8CD1E4CB68900C1E472 /* TSWFCollectionViewCell.m */,
 				BE07C8CE1E4CB68900C1E472 /* TSWFCollectionViewCell.xib */,
 				5CE3FDE52003C91500694E3E /* CellDataSource.swift */,
+				5CE3FDE720050D4900694E3E /* DataSource.h */,
+				5CE3FDE820050D4900694E3E /* DataSource.m */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -4693,6 +4698,7 @@
 				BEC372531E2FC182006FA3C5 /* RealReachability.m in Sources */,
 				BE66A6EE1E47749300A811BA /* EaseBubbleView+Location.m in Sources */,
 				BE66A6C71E47749300A811BA /* PSTCollectionViewItemKey.m in Sources */,
+				5CE3FDE920050D4900694E3E /* DataSource.m in Sources */,
 				BEC372491E2FC182006FA3C5 /* FSMEngine.m in Sources */,
 				BE66A6B81E47749300A811BA /* MKAnnotationView+EMWebCache.m in Sources */,
 				BE2DDD2A1E49B10E0045E617 /* IntoRoomMessageTableViewCell.m in Sources */,

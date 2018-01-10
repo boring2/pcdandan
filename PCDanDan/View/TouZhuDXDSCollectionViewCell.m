@@ -10,6 +10,7 @@
 #import "TouzhuXXCollectionViewCell.h"
 #import "TSWFCollectionViewCell.h"
 #import "PCDanDan-Swift.h"
+#import "DataSource.h"
 
 @implementation TouZhuDXDSCollectionViewCell
 
@@ -109,22 +110,34 @@
 
     TouzhuXXCollectionViewCell *cell = (TouzhuXXCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"TouzhuXXCollectionViewCell" forIndexPath:indexPath];
     if (_showType == 0) {
-      cell.selectImage.hidden = YES;
-      for (NSObject *object in _selectDXDSIndexs) {
-        if (object == indexPath) {
-          cell.selectImage.hidden = NO;
-        }
+
+      NSMutableArray *dataSource = [DataSource getDxdDataSource];
+      NSMutableDictionary *dic = (NSMutableDictionary*)dataSource[indexPath.row];
+      if ([[dic valueForKey:@"selected"] isEqualToString:@"false"]){
+        cell.selectImage.hidden = YES;
+      } else {
+        cell.selectImage.hidden = NO;
       }
+
+      cell.priceLabel.text = [dic valueForKey:@"total"];
+
       GameBiLiListInfo *info = [_gameBiLiInfo.da_xiao objectAtIndex:indexPath.row];
       cell.titleLabel.text = info.bili_name;
       cell.biliLabel.text = [NSString stringWithFormat:@"1:%.2f",info.bili];
     }else{
-      cell.selectImage.hidden = YES;
-      for (NSObject *object in _selectCSZIndexs) {
-        if (object == indexPath) {
-          cell.selectImage.hidden = NO;
-        }
+      NSMutableArray *dataSource = [DataSource getCszDataSource];
+      NSLog(@"----------------%ld", (long)indexPath.row);
+      NSMutableDictionary *dic = (NSMutableDictionary*)dataSource[indexPath.row];
+      if ([[dic valueForKey:@"selected"] isEqualToString:@"false"]){
+        cell.selectImage.hidden = YES;
+      } else {
+        cell.selectImage.hidden = NO;
       }
+//      if ([[dic valueForKey:@"total"] isEqualToString:@"0"]) {
+//        [dic setValue:@"false" forKey:@"selected"];
+//      }
+      cell.priceLabel.text = [dic valueForKey:@"total"];
+
       GameBiLiListInfo *info = [_gameBiLiInfo.shu_zi objectAtIndex:indexPath.row];
       cell.titleLabel.text = info.bili_name;
       cell.biliLabel.text = [NSString stringWithFormat:@"1:%.2f",info.bili];
@@ -136,12 +149,17 @@
     cell.titleLabel.layer.borderColor = [[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.5] CGColor];
     cell.titleLabel.layer.borderWidth = 1.0f;
 
-    cell.selectImage.hidden = YES;
-    for (NSObject *object in _selectTSWFIndexs) {
-      if (object == indexPath) {
-        cell.selectImage.hidden = NO;
-      }
+    NSMutableArray *dataSource = [DataSource getTswfDataSource];
+    NSMutableDictionary *dic = (NSMutableDictionary*)dataSource[indexPath.row];
+    if ([[dic valueForKey:@"selected"] isEqualToString:@"false"]){
+      cell.selectImage.hidden = YES;
+    } else {
+      cell.selectImage.hidden = NO;
     }
+//    if ([[dic valueForKey:@"total"] isEqualToString:@"0"]) {
+//      [dic setValue:@"false" forKey:@"selected"];
+//    }
+    cell.priceLabel.text = [dic valueForKey:@"total"];
 
     switch (indexPath.row %4) {
       case 0:
@@ -190,34 +208,14 @@
 
   if (_showType == 0) {
 
-    NSInteger row = indexPath.row;
-    NSMutableDictionary *dic = (NSMutableDictionary *)[CellDataSource.dxdDataSource objectAtIndex:row];
+    NSMutableDictionary *dic = (NSMutableDictionary *)[DataSource getDxdDataSource][indexPath.row];
+
     if ([[dic valueForKey:@"selected"] isEqual:@"true"]) {
       [dic setValue:@"false" forKey:@"selected"];
+      [dic setValue:@"0" forKey:@"total"];
     } else {
       [dic setValue:@"true" forKey:@"selected"];
     }
-
-//    CellDataSource
-
-//    TouzhuXXCollectionViewCell *cell = (TouzhuXXCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-//    NSInteger tempIndex = 0;
-//    NSString *a = @"";
-//    for (int i = 0; i < _selectDXDSIndexs.count; i++) {
-//      if (_selectDXDSIndexs[i] == indexPath) {
-//        a = @"tag";
-//        tempIndex = i;
-//        cell.selectImage.hidden = YES;
-//        NSLog(@"[aaaa]移除%@", indexPath);
-//        [_selectDXDSIndexs removeObjectAtIndex: i];
-//      }
-//    }
-//    if (![a isEqual: @"tag"]) {
-//      cell.selectImage.hidden = NO;
-//      NSIndexPath *index = indexPath;
-//      NSLog(@"[aaaa]增加%@", index);
-//       [_selectDXDSIndexs addObject: index];
-//    }
 
     _selectDXDSIndex = indexPath.row;
     GameBiLiListInfo *info = [_gameBiLiInfo.da_xiao objectAtIndex:indexPath.row];
@@ -225,46 +223,26 @@
 
   }else if (_showType == 1)
   {
-    TouzhuXXCollectionViewCell *cell = (TouzhuXXCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    NSInteger tempIndex = 0;
-    NSString *a = @"";
-    for (int i = 0; i < _selectCSZIndexs.count; i++) {
-      if (_selectCSZIndexs[i] == indexPath) {
-        a = @"tag";
-        tempIndex = i;
-        cell.selectImage.hidden = YES;
-        NSLog(@"[aaaa]移除%@", indexPath);
-        [_selectCSZIndexs removeObjectAtIndex: i];
-      }
-    }
-    if (![a isEqual: @"tag"]) {
-      cell.selectImage.hidden = NO;
-      NSIndexPath *index = indexPath;
-      NSLog(@"[aaaa]增加%@", index);
-      [_selectCSZIndexs addObject: index];
+    NSMutableDictionary *dic = (NSMutableDictionary *)[DataSource getCszDataSource][indexPath.row];
+
+    if ([[dic valueForKey:@"selected"] isEqual:@"true"]) {
+      [dic setValue:@"false" forKey:@"selected"];
+      [dic setValue:@"0" forKey:@"total"];
+    } else {
+      [dic setValue:@"true" forKey:@"selected"];
     }
 
     _selectCSZIndex = indexPath.row;
     GameBiLiListInfo *info = [_gameBiLiInfo.shu_zi objectAtIndex:indexPath.row];
     _resultLabel.text = [NSString stringWithFormat:@"中奖和值:[%@]",info.result];
   }else{
-     TSWFCollectionViewCell *cell =  (TSWFCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    NSInteger tempIndex = 0;
-    NSString *a = @"";
-    for (int i = 0; i < _selectTSWFIndexs.count; i++) {
-      if (_selectTSWFIndexs[i] == indexPath) {
-        a = @"tag";
-        tempIndex = i;
-        cell.selectImage.hidden = YES;
-        NSLog(@"[aaaa]移除%@", indexPath);
-        [_selectTSWFIndexs removeObjectAtIndex: i];
-      }
-    }
-    if (![a isEqual: @"tag"]) {
-      cell.selectImage.hidden = NO;
-      NSIndexPath *index = indexPath;
-      NSLog(@"[aaaa]增加%@", index);
-      [_selectTSWFIndexs addObject: index];
+    NSMutableDictionary *dic = (NSMutableDictionary *)[DataSource getTswfDataSource][indexPath.row];
+
+    if ([[dic valueForKey:@"selected"] isEqual:@"true"]) {
+      [dic setValue:@"false" forKey:@"selected"];
+      [dic setValue:@"0" forKey:@"total"];
+    } else {
+      [dic setValue:@"true" forKey:@"selected"];
     }
 
     _selectTSWFIndex = indexPath.row;
@@ -275,7 +253,7 @@
       _resultLabel.text = [NSString stringWithFormat:@"中奖和值:[%@]",info.result];
     }
   }
-//  [collectionView reloadData];
+  [collectionView reloadData];
 
   UICollectionView *collectView = [self collectView];
   NSIndexPath *indexPare = [collectView indexPathForCell:self];

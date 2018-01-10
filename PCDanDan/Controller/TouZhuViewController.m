@@ -8,8 +8,7 @@
 
 #import "TouZhuViewController.h"
 #import "TouZhuDXDSCollectionViewCell.h"
-#import "TouzhuXXCollectionViewCell.h"
-#import "TSWFCollectionViewCell.h"
+#import "DataSource.h"
 
 @interface TouZhuViewController ()<TouZhuDXDSCollectionViewCellDelegate, UITextFieldDelegate>
 {
@@ -102,6 +101,9 @@
 - (void)quitLoginDiss
 {
   [self dismissViewControllerAnimated:NO completion:nil];
+  [DataSource resetAll];
+  [toolbar.items[2] setTitle:@"0.00"];
+  _moneyText.text = @"0";
 }
 
 #pragma mark - 新手指导页
@@ -178,6 +180,9 @@
 - (IBAction)clickDissButtonAction:(id)sender
 {
   [self dismissViewControllerAnimated:YES completion:nil];
+  [DataSource resetAll];
+  [toolbar.items[2] setTitle:@"0.00"];
+  _moneyText.text = @"0";
 }
 
 - (IBAction)clickLeftButtonAction:(id)sender
@@ -396,17 +401,23 @@
 #pragma mark - TouZhuDXDSCollectionViewCellDelegate
 - (void)clickIconWithIndex:(NSInteger )index withParentIndex:(NSInteger)parentIndex
 {
-  [_moneyText becomeFirstResponder];
-
   pageNum = parentIndex;
-  
+  NSMutableDictionary *dic;
   if (pageNum == 0) {
     selectDXDSIndex = index;
+    dic = [DataSource getDxdDataSource][index];
   }else if (pageNum == 1) {
     selectCSZIndex = index;
+    dic = [DataSource getCszDataSource][index];
   }else
   {
     selectTSWFIndex = index;
+    dic = [DataSource getTswfDataSource][index];
+  }
+  if ([[dic valueForKey:@"selected"] isEqualToString: @"true"]) {
+     [_moneyText becomeFirstResponder];
+  } else {
+    [_moneyText resignFirstResponder];
   }
   
   [self upateShowUi];
@@ -438,7 +449,7 @@
   UIBarButtonItem *total = [[UIBarButtonItem alloc] initWithTitle:@"0.00" style:UIBarButtonItemStylePlain target:nil action:nil];
   [total setTintColor:[UIColor redColor]];
 //  [total setEnabled:NO];
-  UIBarButtonItem *bar = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(textFieldDone)];
+  UIBarButtonItem *bar = [[UIBarButtonItem alloc] initWithTitle:@"投注" style:UIBarButtonItemStylePlain target:self action:@selector(textFieldDone)];
   toolbar.items = @[empty, space, total, space, bar];
   return toolbar;
 }
@@ -446,16 +457,67 @@
 - (void) textFieldDone {
   [_moneyText endEditing:true];
   [_moneyText resignFirstResponder];
+  NSMutableDictionary *dataDic;
+  NSInteger indexPathForRow;
   if (pageNum == 0) {
-    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
-    TouZhuDXDSCollectionViewCell *pageCell = (TouZhuDXDSCollectionViewCell *)[_pageCollectView cellForItemAtIndexPath:index];
-    NSIndexPath *cellIndex = [NSIndexPath indexPathForRow:selectDXDSIndex inSection:0];
-    TouzhuXXCollectionViewCell *cell = (TouzhuXXCollectionViewCell *)[pageCell.collectView cellForItemAtIndexPath:cellIndex];
-    cell.priceLabel.text = _moneyText.text;
-    _moneyText.text = @"0.00";
-    UIBarButtonItem *item = [toolbar.items objectAtIndex:2];
-    [item setTitle: [NSString stringWithFormat: @"%@", _moneyText.text]];
+    dataDic = [DataSource getDxdDataSource][selectDXDSIndex];
+    indexPathForRow = 0;
+  } else if (pageNum == 1) {
+    dataDic = [DataSource getCszDataSource][selectCSZIndex];
+    indexPathForRow = 1;
+  } else {
+    dataDic = [DataSource getTswfDataSource][selectTSWFIndex];
+    indexPathForRow = 2;
   }
+
+  NSDictionary *dic = nil;
+  if([self.delegate respondsToSelector:@selector(getChoiceNoWithstatue)])
+  {
+    dic = [self.delegate getChoiceNoWithstatue];
+  }
+  GameBiLiListInfo *info = nil;
+  if (pageNum == 0) {
+    info = [_gameBiLiInfo.da_xiao objectAtIndex:selectDXDSIndex];
+  }else if (pageNum == 1) {
+    info = [_gameBiLiInfo.shu_zi objectAtIndex:selectCSZIndex];
+  }else{
+    info = [_gameBiLiInfo.te_shu objectAtIndex:selectTSWFIndex];
+  }
+
+  if ([_moneyText.text doubleValue] < info.min_point) {
+
+    [Tool showPromptContent:[NSString stringWithFormat:@"每注最少%.2f元宝",info.min_point] onView:self.view];
+    [dataDic setValue:@"false" forKey:@"selected"];
+    [_pageCollectView reloadData];
+    _moneyText.text = @"0.00";
+    [toolbar.items[2] setTitle:@"0.00"];
+    return;
+  }
+  if ([_moneyText.text doubleValue] > info.max_point) {
+    [Tool showPromptContent:[NSString stringWithFormat:@"每注上限%.2f元宝",info.max_point] onView:self.view];
+    [dataDic setValue:@"false" forKey:@"selected"];
+    [_pageCollectView reloadData];
+    _moneyText.text = @"0.00";
+    [toolbar.items[2] setTitle:@"0.00"];
+    return;
+  }
+
+  if (_gameBiLiInfo) {
+    if ([_moneyText.text isEqualToString: @"0"] || [_moneyText.text isEqualToString: @"0.00"]) {
+      [Tool showPromptContent:@"请输入下注金额" onView:self.view];
+      [dataDic setValue:@"false" forKey:@"selected"];
+      [_pageCollectView reloadData];
+      _moneyText.text = @"0.00";
+      [toolbar.items[2] setTitle:@"0.00"];
+      return;
+    }
+  }
+
+  NSString *total = _moneyText.text;
+  [dataDic setValue:total forKey:@"total"];
+  [_pageCollectView reloadData];
+  _moneyText.text = @"0.00";
+  [toolbar.items[2] setTitle:@"0.00"];
 }
 
 
@@ -464,6 +526,8 @@
 - (void) textFieldDidChange {
   UIBarButtonItem *item = [toolbar.items objectAtIndex:2];
   [item setTitle: [NSString stringWithFormat: @"%@", _moneyText.text]];
-  NSLog(@"%@", _moneyText.text);
+  if ([_moneyText.text isEqualToString:@""]) {
+    [item setTitle: @"0"];
+  }
 }
 @end

@@ -63,6 +63,7 @@
             <size key="customSize" width="115" height="57"/>
             <connections>
                 <outlet property="biliLabel" destination="YZS-QI-MwP" id="VBe-jA-LzL"/>
+                <outlet property="priceLabel" destination="FKW-CG-VAl" id="VXS-1x-nCu"/>
                 <outlet property="selectImage" destination="jcV-xP-JVx" id="7mb-Hg-HQk"/>
                 <outlet property="titleLabel" destination="Qpm-EA-T2X" id="R1U-BS-MJ8"/>
             </connections>
