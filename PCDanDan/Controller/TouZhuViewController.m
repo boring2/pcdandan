@@ -40,6 +40,7 @@
     [self performSelector:@selector(addGuideView) withObject:nil afterDelay:0.5];
   }
   [_moneyText setHidden:true];
+  _moneyText.text = @"0";
   _moneyText.backgroundColor = [UIColor clearColor];
   _moneyText.inputAccessoryView = [self addToolbar];
 }
@@ -61,7 +62,8 @@
   
   _moneyLabel.layer.masksToBounds =YES;
   _moneyLabel.layer.cornerRadius = 3;
-  
+  [_moneyLabel setHidden:true];
+
   _plsmButton.layer.masksToBounds =YES;
   _plsmButton.layer.cornerRadius = 3;
   _plsmButton.layer.borderColor = [[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.7] CGColor];
@@ -246,22 +248,29 @@
 - (IBAction)clickZXTZButtonAction:(id)sender
 {
   GameBiLiListInfo *info = nil;
+  NSMutableDictionary *dic;
   if (pageNum == 0) {
     info = [_gameBiLiInfo.da_xiao objectAtIndex:selectDXDSIndex];
+    dic = [DataSource getDxdDataSource][selectDXDSIndex];
   }else if (pageNum == 1) {
     info = [_gameBiLiInfo.shu_zi objectAtIndex:selectCSZIndex];
+    dic = [DataSource getCszDataSource][selectTSWFIndex];
   }else{
     info = [_gameBiLiInfo.te_shu objectAtIndex:selectTSWFIndex];
+    dic = [DataSource getTswfDataSource][selectTSWFIndex];
   }
   _moneyText.text = [NSString stringWithFormat:@"%.0f",info.min_point];
+  [self textFieldDone];
+
 }
 
 - (IBAction)clickSBTZButtonAction:(id)sender
 {
-  if (_moneyText.text.length < 1) {
+  if (_moneyText.text.length < 1 || [_moneyText.text isEqualToString: @"0"]) {
     [Tool showPromptContent:@"请输入投注金额" onView:self.view];
   }else{
     _moneyText.text = [NSString stringWithFormat:@"%.0f",[_moneyText.text doubleValue]*2];
+    [self textFieldDone];
   }
 }
 - (IBAction)clickTZButtonAction:(id)sender
@@ -434,7 +443,7 @@
   }else{
     info = [_gameBiLiInfo.te_shu objectAtIndex:selectTSWFIndex];
   }
-  _moneyText.text = @"";
+  _moneyText.text = @"0";
   if (info.min_point >= 1) {
     _moneyText.placeholder = [NSString stringWithFormat:@"每注最少%.1f元宝",info.min_point];
   }
@@ -497,7 +506,7 @@
     [Tool showPromptContent:[NSString stringWithFormat:@"每注上限%.2f元宝",info.max_point] onView:self.view];
     [dataDic setValue:@"false" forKey:@"selected"];
     [_pageCollectView reloadData];
-    _moneyText.text = @"0.00";
+    _moneyText.text = @"0";
     [toolbar.items[2] setTitle:@"0.00"];
     return;
   }
@@ -507,7 +516,7 @@
       [Tool showPromptContent:@"请输入下注金额" onView:self.view];
       [dataDic setValue:@"false" forKey:@"selected"];
       [_pageCollectView reloadData];
-      _moneyText.text = @"0.00";
+      _moneyText.text = @"0";
       [toolbar.items[2] setTitle:@"0.00"];
       return;
     }
@@ -516,7 +525,7 @@
   NSString *total = _moneyText.text;
   [dataDic setValue:total forKey:@"total"];
   [_pageCollectView reloadData];
-  _moneyText.text = @"0.00";
+  _moneyText.text = @"0";
   [toolbar.items[2] setTitle:@"0.00"];
 }
 
